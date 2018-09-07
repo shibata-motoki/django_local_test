@@ -23,6 +23,9 @@ python manage.py createsuperuser
 # テストの実行
 python manage.py test {アプリケーション名}
 
+# インタラクティブコンソール起動
+python manage.py shell
+
 # djangoのソースファイルの場所
 python -c "import django; print(django.__path__)"
 
@@ -65,3 +68,7 @@ python -c "import django; print(django.__path__)"
     from .models import Post
 
     admin.site.register(Post)
+
+
+⑥debugメニューの表示方法
+https://wonderwall.hatenablog.com/entry/2018/03/13/233000

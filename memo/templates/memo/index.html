@@ -1,0 +1,10 @@
+{% extends "memo/base.html" %}
+
+{% block content %}
+<form action="{% url 'memo:memo_list'%}" method="post">
+	{% csrf_token %}
+	<h3>メモをどうぞ</h3>
+	{{ form.as_p }}
+	<input type="submit" value = "送信"/>
+</form>
+{% endblock content %}
