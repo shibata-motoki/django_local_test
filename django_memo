@@ -19,3 +19,9 @@ python manage.py migrate
 
 # 管理ユーザー作成
 python manage.py createsuperuser
+
+# テストの実行
+python manage.py test {アプリケーション名}
+
+# djangoのソースファイルの場所
+python -c "import django; print(django.__path__)"
