@@ -1,0 +1,21 @@
+# djangoの環境設定
+pipenv install django
+
+# 新規プロジェクトの作成
+django-admin startproject {プロジェクト名}
+
+
+# 新規アプリケーション作成
+python manage.py startapp {アプリケーション名}
+
+# サーバー起動
+python manage.py runserver
+
+# データベース作成用ファイル作成
+python manage.py makemigrations {アプリケーション名}
+
+# データベース作成
+python manage.py migrate
+
+# 管理ユーザー作成
+python manage.py createsuperuser
