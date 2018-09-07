@@ -25,3 +25,43 @@ python manage.py test {アプリケーション名}
 
 # djangoのソースファイルの場所
 python -c "import django; print(django.__path__)"
+
+# django新規プロジェクト作成後にすること
+①{プロジェクト}のsettings.pyのINSTALLED_APPSに
+{アプリケーション名}/apps/{クラス名}
+の設定を入れる
+    例：アプリケーション名:polls
+    'polls.apps.PollsConfig'
+②{プロジェクト}のurls.pyに設定を入れる
+    例：アプリケーション名:polls
+    urlpatterns = [
+        path('polls/', include('polls.urls')),
+    ]
+③{アプリケーション}にurls.pyを作成
+    例：アプリケーション名:polls
+    from django.urls import path
+
+    from . import views
+
+    app_name = 'polls'
+
+    urlpatterns = [
+        path('', views.IndexView.as_view(), name='index'),
+        path('<int:pk>/', views.DetailView.as_view(), name='detail'),
+        path('<int:pk>/results/', views.ResultsView.as_view(), name='results'),
+        path('<int:question_id>/vote/', views.vote, name='vote'),
+    ]
+
+④フォルダ、ファイル作成
+{アプリケーション}/templates/{アプリケーション}
+{アプリケーション}/templates/{アプリケーション}/
+{アプリケーション}/static/{アプリケーション} #css入れる
+{アプリケーション}/static/{アプリケーション}/images #写真入れる
+{アプリケーション}/forms.py
+
+⑤{アプリケーション}のadmin.py修正
+    例：Postクラスを表示させる
+    from django.contrib import admin
+    from .models import Post
+
+    admin.site.register(Post)
