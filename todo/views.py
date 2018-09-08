@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.urls import reverse
+from django.http import JsonResponse
 
 from .models import Todo
 from .forms import TodoForm
@@ -42,5 +42,5 @@ def todo_delete(request, pk):
     todo = get_object_or_404(Todo, pk=pk)
     if request.method == 'POST':
         todo.delete()
-        return redirect(request, 'todo:todo_list')
+        return redirect('todo:todo_list')
     return render(request, 'todo/todo_delete.html', {'todo': todo})

@@ -13,5 +13,14 @@ class Todo(models.Model):
     def __str__(self):
         return self.title
 
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "title": self.title,
+            "task": self.task,
+            "dead_time": self.dead_time,
+            "created_at": self.created_at,
+        }
+
     class Meta:
         db_table = 'todo'

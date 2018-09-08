@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'memo.apps.MemoConfig',
     'todo.apps.TodoConfig',
+    # 'todo.api.apps.ApiConfig',
     # 'sougi.apps.SougiConfig',
     # 'api_test.apps.ApiTestConfig',
     'anything.apps.AnythingConfig',

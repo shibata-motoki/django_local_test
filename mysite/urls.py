@@ -23,6 +23,7 @@ urlpatterns = [
     path('blog/', include('blog.urls')),
     path('memo/', include('memo.urls')),
     path('todo/', include('todo.urls')),
+    path('todo/api', include('todo.api.urls')),
     # path('sougi/', include('sougi.urls')),
     # path('api_test/', include('api_test.urls')),
     path('anything/', include('anything.urls')),
