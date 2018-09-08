@@ -22,6 +22,7 @@ urlpatterns = [
     path('polls/', include('polls.urls')),
     path('blog/', include('blog.urls')),
     path('memo/', include('memo.urls')),
+    path('todo/', include('todo.urls')),
     # path('sougi/', include('sougi.urls')),
     # path('api_test/', include('api_test.urls')),
     path('anything/', include('anything.urls')),

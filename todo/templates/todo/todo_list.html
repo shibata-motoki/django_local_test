@@ -1,0 +1,11 @@
+
+<h2>Todo List</h2>
+{% if todo_list %}
+    {% for todo in todo_list %}
+    <p class="date">
+        {{ todo.title }}
+        {{ todo.task }}
+        {{ todo.dead_time }}
+    </p>
+    {% endfor %}
+{% endif %}

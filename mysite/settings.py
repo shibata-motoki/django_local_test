@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'polls.apps.PollsConfig',
     'blog.apps.BlogConfig',
     'memo.apps.MemoConfig',
+    'todo.apps.TodoConfig',
     # 'sougi.apps.SougiConfig',
     # 'api_test.apps.ApiTestConfig',
     'anything.apps.AnythingConfig',
