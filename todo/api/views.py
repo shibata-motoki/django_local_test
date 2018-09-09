@@ -12,10 +12,16 @@ error = {"message": "No todo list"}
 @csrf_exempt
 @require_http_methods(["GET", "POST"])
 def todo_list(request):
-    todo_json_list = []
-    for todo in Todo.objects.all():
-        todo_json_list.append(todo.to_dict())
-    return JsonResponse(todo_json_list, safe=False)
+    if request.method == "GET":
+        todo_json_list = [todo.to_dict() for todo in Todo.objects.all()]
+        return JsonResponse(todo_json_list, safe=False)
+    else: #POST
+        params = json.loads(request.body)
+        todo = Todo.objects.create(
+            title=params["title"],
+            task=params["task"])
+        return JsonResponse({"id": todo.id})
+
 
 @csrf_exempt
 @require_http_methods(["GET", "POST"])
