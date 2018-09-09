@@ -32,6 +32,39 @@ def todo_detail(request, pk):
         return JsonResponse(error)
     return JsonResponse(todo.to_dict())
 
+@csrf_exempt
+@require_http_methods(["POST"])
+def todo_update(request, pk):
+    try:
+        todo = Todo.objects.get(pk=pk)
+    except json.decoder.JSONDecodeError:
+        return JsonResponse(error)
+    except Todo.DoesNotExist:
+        return JsonResponse(error)
+    params = json.loads(request.body)
+    Todo.objects.filter(pk=pk).update(
+        title=params["title"],
+        task=params["task"],)
+    return JsonResponse(
+        {"status": "update_succeed",
+         "id": todo.id,
+        "title": todo.title,
+         "task": todo.task,
+         "dead_time": todo.dead_time})
+
+@csrf_exempt
+@require_http_methods(["POST"])
+def todo_delete(request, pk):
+    try:
+        todo = Todo.objects.get(pk=pk)
+    except Todo.DoesNotExist:
+        return JsonResponse(error)
+    id = todo.id
+    title = todo.title
+    todo.delete()
+    return JsonResponse(
+        {"status": "delete_succeed", "id": id, "title": title})
+
 
 # @csrf_exempt
 # @require_http_methods(["GET", "POST"])
