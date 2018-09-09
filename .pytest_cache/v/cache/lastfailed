@@ -1,0 +1,4 @@
+{
+  "todo/tests/test_views.py": true,
+  "todo/tests/test_views.py::TestTodo::test_get": true
+}
